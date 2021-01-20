@@ -1,0 +1,21 @@
+{
+  "name": "oop-examples",
+  "version": "0.0.1",
+  "description": "examples for introducing object-oriented programming in JS and TS",
+  "scripts": {
+    "start": "http-server src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/portsoc/oop-examples.git"
+  },
+  "author": "Jacek Kopecky <jacek@jacek.cz>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/portsoc/oop-examples/issues"
+  },
+  "homepage": "https://github.com/portsoc/oop-examples#readme",
+  "dependencies": {
+    "http-server": "^0.12.3"
+  }
+}
