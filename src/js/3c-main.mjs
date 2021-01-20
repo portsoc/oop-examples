@@ -5,7 +5,7 @@ const c = canvas.getContext("2d");
 
 const DEG = Math.PI / 180;
 
-const objects = [
+const shapes = [
   drawing.createLine(200, 500, 400, 500),
   drawing.createLine(400, 500, 400, 300),
   drawing.createLine(400, 300, 200, 300),
@@ -15,19 +15,19 @@ const objects = [
   drawing.createCircle(450, 60, 50),
 ];
 
-for (let i = 0; i<objects.length; i += 1) {
-  objects[i].rotateBy = i * DEG / 2;
+for (let i = 0; i<shapes.length; i += 1) {
+  shapes[i].rotateBy = i * DEG / 2;
 }
 
 function draw() {
-  for (const obj of objects) {
-    obj.draw(c);
+  for (const shape of shapes) {
+    shape.draw(c);
   }
 }
 
 function animate() {
   c.clearRect(0, 0, canvas.width, canvas.height);
-  for (const obj of objects) obj.rotate(obj.rotateBy);
+  for (const shape of shapes) shape.rotate(shape.rotateBy);
   draw();
   requestAnimationFrame(animate);
 }
