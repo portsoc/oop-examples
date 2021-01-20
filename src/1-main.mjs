@@ -10,7 +10,6 @@ drawing.drawLine(c, 100, 300, 100, 500);
 drawing.drawLine(c, 70, 330, 200, 200);
 drawing.drawLine(c, 330, 330, 200, 200);
 
-
 // const lines = [
 //   { x1: 200, y1: 500, x2: 400, y2: 500 },
 //   { x1: 400, y1: 500, x2: 400, y2: 300 },
@@ -23,3 +22,5 @@ drawing.drawLine(c, 330, 330, 200, 200);
 // for (const line of lines) {
 //   drawing.drawLine(c, line.x1, line.y1, line.x2, line.y2);
 // }
+
+// drawing.drawCircle(c, 450, 60, 50);
