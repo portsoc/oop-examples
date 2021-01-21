@@ -1,4 +1,4 @@
-import * as drawing from './drawing/3-drawing-objects.mjs';
+import * as drawing from './drawing-objects.mjs';
 
 const canvas = document.querySelector('canvas');
 const c = canvas.getContext("2d");
@@ -22,14 +22,9 @@ function draw() {
 
 function animate() {
   c.clearRect(0, 0, canvas.width, canvas.height);
-  for (const shape of shapes) shape.rotate(shape.rotateBy);
+  for (const shape of shapes) shape.rotate(DEG);
   draw();
   requestAnimationFrame(animate);
-}
-
-// give each line diffent rotation speed
-for (let i = 0; i<shapes.length; i += 1) {
-  shapes[i].rotateBy = i * DEG / 2;
 }
 
 animate();

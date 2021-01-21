@@ -1,4 +1,4 @@
-import * as drawing from './drawing/2-drawing-functions.mjs';
+import * as drawing from './drawing-functions.mjs';
 
 const canvas = document.querySelector('canvas');
 const c = canvas.getContext("2d");
