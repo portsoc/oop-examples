@@ -11,26 +11,36 @@ const lines = [
   { x1: 430, y1: 330, x2: 300, y2: 200 },
 ];
 
-const circle = { x: 450, y: 60, r: 50 }
+const circles = [
+  { x: 450, y: 20, r: 30 },
+  { x: 150, y: 60, r: 50 },
+  { x: 50, y: 100, r: 20 },
+  { x: 250, y: 140, r: 10 },
+  { x: 350, y: 180, r: 40 },
+]
 
 function draw() {
   for (const line of lines) {
     drawing.drawLine(c, line);
   }
 
-  drawing.drawCircle(c, circle);
+  for (const circle of circles) {
+    drawing.drawCircle(c, circle);
+  }
 }
 
 function animate() {
   c.clearRect(0, 0, canvas.width, canvas.height);
-  moveSun();
+  moveCircles();
   draw();
   requestAnimationFrame(animate);
 }
 
-function moveSun() {
-  circle.x += 1;
-  if (circle.x > canvas.width + circle.r) circle.x = -circle.r;
+function moveCircles() {
+  for (const circle of circles) {
+    circle.x += 1;
+    if (circle.x > canvas.width + circle.r) circle.x = -circle.r;
+  }
 }
 
 animate();
