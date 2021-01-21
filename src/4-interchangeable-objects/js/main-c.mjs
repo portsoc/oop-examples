@@ -3,7 +3,8 @@ import * as drawing from './drawing-objects.mjs';
 const canvas = document.querySelector('canvas');
 const c = canvas.getContext("2d");
 
-const DEG = Math.PI / 180;
+const BUBBLES = 20;
+const AVG_SIZE = 30;
 
 const shapes = [
   drawing.createLine(200, 500, 400, 500),
@@ -11,8 +12,18 @@ const shapes = [
   drawing.createLine(200, 300, 200, 500),
   drawing.createLine(170, 330, 300, 200),
   drawing.createLine(430, 330, 300, 200),
-  drawing.createCircle(450, 60, 50),
 ];
+
+for (let i = 0; i < BUBBLES; i += 1) {
+  const circle = drawing.createCircle(
+    Math.random() * canvas.width,
+    Math.random() * canvas.height,
+    Math.random() * AVG_SIZE + AVG_SIZE / 2,
+  );
+  circle.dx = Math.random() + 1;
+  circle.dy = Math.random() - 0.5;
+  shapes.push(circle);
+}
 
 function draw() {
   for (const shape of shapes) {
@@ -22,14 +33,15 @@ function draw() {
 
 function animate() {
   c.clearRect(0, 0, canvas.width, canvas.height);
-  for (const shape of shapes) shape.rotate(shape.rotateBy);
+  move();
   draw();
   requestAnimationFrame(animate);
 }
 
-// give each line diffent rotation speed
-for (let i = 0; i<shapes.length; i += 1) {
-  shapes[i].rotateBy = i * DEG / 2;
+function move() {
+  for (const shape of shapes) {
+    if (shape.move) shape.move(c, shape.dx, shape.dy);
+  }
 }
 
 animate();

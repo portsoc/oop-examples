@@ -17,9 +17,20 @@ function drawCircle(c) {
   c.stroke();
 }
 
+function moveCircle(c, dx, dy) {
+  this.x += dx;
+  this.y += dy;
+
+  // check bounds
+  if (this.x > c.canvas.width + this.r) this.x = -this.r;
+  if (this.y > c.canvas.height + this.r) this.y = -this.r;
+  if (this.x < -this.r) this.x = c.canvas.width + this.r;
+  if (this.y < -this.r) this.y = c.canvas.height + this.r;
+}
 
 export function createCircle(x, y, r) {
   const circleObj = { x, y, r };
   circleObj.draw = drawCircle;
+  circleObj.move = moveCircle;
   return circleObj;
 }
