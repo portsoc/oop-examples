@@ -8,7 +8,6 @@ const DEG = Math.PI / 180;
 const shapes = [
   drawing.createLine(200, 500, 400, 500),
   drawing.createLine(400, 500, 400, 300),
-  drawing.createLine(400, 300, 200, 300),
   drawing.createLine(200, 300, 200, 500),
   drawing.createLine(170, 330, 300, 200),
   drawing.createLine(430, 330, 300, 200),
