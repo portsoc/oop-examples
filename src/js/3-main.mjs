@@ -3,6 +3,8 @@ import * as drawing from './drawing/3-drawing-objects.mjs';
 const canvas = document.querySelector('canvas');
 const c = canvas.getContext("2d");
 
+const DEG = Math.PI / 180;
+
 const lines = [
   drawing.createLine(200, 500, 400, 500),
   drawing.createLine(400, 500, 400, 300),
@@ -24,7 +26,7 @@ function draw() {
 
 function animate() {
   c.clearRect(0, 0, canvas.width, canvas.height);
-  for (const line of lines) line.rotate(-Math.PI / 180);
+  for (const line of lines) line.rotate(DEG);
   draw();
   requestAnimationFrame(animate);
 }

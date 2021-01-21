@@ -6,14 +6,14 @@ function drawLine(c) {
 }
 
 // rotate line 1 degree around its beginning
-function rotateLine(degree = Math.PI / 180) {
+function rotateLine(angle = 0) {
   // vector coordinates of the line
   const vx = this.x2 - this.x1;
   const vy = this.y2 - this.y1;
 
   // rotate the vector
-  const rotx = vx * Math.cos(degree) - vy * Math.sin(degree);
-  const roty = vx * Math.sin(degree) + vy * Math.cos(degree);
+  const rotx = vx * Math.cos(angle) - vy * Math.sin(angle);
+  const roty = vx * Math.sin(angle) + vy * Math.cos(angle);
 
   // set the new end point
   this.x2 = this.x1 + rotx;

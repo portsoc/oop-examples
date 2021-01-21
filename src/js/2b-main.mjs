@@ -3,6 +3,8 @@ import * as drawing from './drawing/2-drawing-functions.mjs';
 const canvas = document.querySelector('canvas');
 const c = canvas.getContext("2d");
 
+const DEG = Math.PI / 180;
+
 const lines = [
   { x1: 200, y1: 500, x2: 400, y2: 500 },
   { x1: 400, y1: 500, x2: 400, y2: 300 },
@@ -24,20 +26,20 @@ function draw() {
 
 function animate() {
   c.clearRect(0, 0, canvas.width, canvas.height);
-  for (const line of lines) rotateLine(line);
+  for (const line of lines) rotateLine(line, DEG);
   draw();
   requestAnimationFrame(animate);
 }
 
 // rotate line 1 degree around its beginning
-function rotateLine(line, degree = Math.PI / 180) {
+function rotateLine(line, angle) {
   // vector coordinates of the line
   const vx = line.x2 - line.x1;
   const vy = line.y2 - line.y1;
 
   // rotate the vector
-  const rotx = vx * Math.cos(degree) - vy * Math.sin(degree);
-  const roty = vx * Math.sin(degree) + vy * Math.cos(degree);
+  const rotx = vx * Math.cos(angle) - vy * Math.sin(angle);
+  const roty = vx * Math.sin(angle) + vy * Math.cos(angle);
 
   // set the new end point
   line.x2 = line.x1 + rotx;

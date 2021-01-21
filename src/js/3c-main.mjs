@@ -15,10 +15,6 @@ const shapes = [
   drawing.createCircle(450, 60, 50),
 ];
 
-for (let i = 0; i<shapes.length; i += 1) {
-  shapes[i].rotateBy = i * DEG / 2;
-}
-
 function draw() {
   for (const shape of shapes) {
     shape.draw(c);
@@ -30,6 +26,11 @@ function animate() {
   for (const shape of shapes) shape.rotate(shape.rotateBy);
   draw();
   requestAnimationFrame(animate);
+}
+
+// give each line diffent rotation speed
+for (let i = 0; i<shapes.length; i += 1) {
+  shapes[i].rotateBy = i * DEG / 2;
 }
 
 animate();
