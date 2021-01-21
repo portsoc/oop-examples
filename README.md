@@ -1,4 +1,4 @@
-# oop-examples
+# OOP Examples
 
 Examples for introducing Object-Oriented Programming in JS and TS.
 
@@ -10,3 +10,9 @@ Examples for introducing Object-Oriented Programming in JS and TS.
 * 4: put moving into circles
   * …generate random bubbles
   * …and we can still put extra stuff in the objects (dx, dy)
+* 5: classes
+* 6: inheritance
+* 7: polymorphism example with `toString()`
+* 8: gotcha: `this` parameter can get lost if we're not careful
+* 9: getters
+* 10: typescript
