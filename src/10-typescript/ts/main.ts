@@ -1,12 +1,12 @@
-import * as drawing from './drawing-classes.mjs';
+import * as drawing from './drawing-classes';
 
-const canvas = document.querySelector('canvas');
-const c = canvas.getContext("2d");
+const canvas = document.querySelector('canvas') as HTMLCanvasElement; // won't be null
+const c = canvas.getContext("2d") as CanvasRenderingContext2D; // won't be null
 
 const BUBBLES = 20;
 const AVG_SIZE = 30;
 
-const shapes = [
+const shapes: drawing.Shape[] = [
   new drawing.Line(200, 500, 400, 500),
   new drawing.Line(400, 500, 400, 300),
   new drawing.Line(200, 300, 200, 500),
@@ -40,10 +40,17 @@ function animate() {
 
 function move() {
   for (const shape of shapes) {
-    shape.move(c, shape.dx, shape.dy);
+    shape.move(c);
   }
 }
 
 animate();
 
+for (const shape of shapes) {
+  if (shape instanceof drawing.Line) {
+    console.log(shape.length);
+  }
+}
+
+// typescript doesn't catch this:
 document.addEventListener('click', shapes[0].log);

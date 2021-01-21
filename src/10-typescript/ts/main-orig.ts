@@ -1,4 +1,4 @@
-import * as drawing from './drawing-classes.mjs';
+import * as drawing from './drawing-classes-orig';
 
 const canvas = document.querySelector('canvas');
 const c = canvas.getContext("2d");
@@ -46,4 +46,8 @@ function move() {
 
 animate();
 
-document.addEventListener('click', shapes[0].log);
+for (const shape of shapes) {
+  if (shape instanceof drawing.Line) {
+    console.log(shape.length);
+  }
+}
