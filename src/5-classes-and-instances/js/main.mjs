@@ -40,7 +40,9 @@ function animate() {
 
 function move() {
   for (const shape of shapes) {
-    if (shape instanceof drawing.Circle) shape.move(c, shape.dx, shape.dy);
+    if (shape instanceof drawing.Circle) {
+      shape.move(c, shape.dx, shape.dy);
+    }
   }
 }
 
